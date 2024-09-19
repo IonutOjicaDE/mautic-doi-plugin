@@ -8,7 +8,7 @@ return [
     'services' => [
         'events' => [
             'jw.mautic.email.formbundle.subscriber' => [
-                'class' => \MauticPlugin\JotaworksDoiBundle\EventListener\FormSubscriber::class,
+                'class'     => \MauticPlugin\JotaworksDoiBundle\EventListener\FormSubscriber::class,
                 'arguments' => [
                     'router',
                     'event_dispatcher',
@@ -46,10 +46,20 @@ return [
         'helpers' => [
             'jw.doi.actionhelper' => [
                 'class' => \MauticPlugin\JotaworksDoiBundle\Helper\DoiActionHelper::class,
-                'arguments' => ['event_dispatcher', 'mautic.helper.ip_lookup', 'mautic.page.model.page', 'mautic.email.model.email', 'mautic.core.model.auditlog', 'mautic.lead.model.lead', 'request_stack' ]
+                'arguments' => [
+                  'event_dispatcher',
+                  'mautic.helper.ip_lookup',
+                  'mautic.page.model.page',
+                  'mautic.email.model.email',
+                  'mautic.core.model.auditlog',
+                  'mautic.lead.model.lead',
+                  'mautic.lead.model.field',
+                  'doctrine.orm.entity_manager',
+                  'monolog.logger.mautic',
+                  'request_stack' ]
             ],
             'jw.doi.nothumanclickhelper' => [
-                'class' => \MauticPlugin\JotaworksDoiBundle\Helper\NotHumanClickHelper::class,
+                'class'     => \MauticPlugin\JotaworksDoiBundle\Helper\NotHumanClickHelper::class,
                 'arguments' => ['mautic.helper.paths' ]
             ]
 
